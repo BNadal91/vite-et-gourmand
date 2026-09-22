@@ -84,10 +84,17 @@ final class Utilisateur extends Model
     // ---- Anti brute-force ----
     public function tentativesRecentes(string $email, string $ip, int $minutes = 15): int
     {
-        $r = $this->one('SELECT COUNT(*) AS n FROM tentative_connexion
-                         WHERE (email = ? OR ip = ?) AND date_tentative > (NOW() - INTERVAL ? MINUTE)',
+        // Échecs pour ce compte depuis cette adresse (seuil 5) et échecs globaux de l'adresse
+        // (seuil 20, contre les attaques qui essaient beaucoup de comptes différents).
+        $r = $this->one('SELECT
+                            SUM(email = ?) AS compte,
+                            COUNT(*) AS adresse
+                         FROM tentative_connexion
+                         WHERE ip = ? AND date_tentative > (NOW() - INTERVAL ? MINUTE)',
             [mb_strtolower($email), $ip, $minutes]);
-        return (int) ($r['n'] ?? 0);
+        $compte = (int) ($r['compte'] ?? 0);
+        $adresse = (int) ($r['adresse'] ?? 0);
+        return $adresse >= 20 ? max($compte, 5) : $compte;
     }
 
     public function enregistrerEchec(string $email, string $ip): void
