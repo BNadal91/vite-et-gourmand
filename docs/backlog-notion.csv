@@ -1,0 +1,33 @@
+﻿ID,Epic,User story,Priorité (MoSCoW),Points,Sprint,Branche Git,Statut
+US01,Socle,"Mettre en place l'environnement (PHP, MariaDB, MongoDB, Git, Docker)",Must,3,Sprint 1,feature/socle-mvc,Terminé
+US02,Socle,Créer la base de données (script SQL + jeu de données),Must,3,Sprint 1,feature/base-de-donnees,Terminé
+US03,Socle,"Routeur, contrôleur frontal, gabarit commun",Must,5,Sprint 1,feature/socle-mvc,Terminé
+US04,Maquettes,"Définir la charte graphique, wireframes et mockups",Must,5,Sprint 1,feature/charte-graphique,Terminé
+US05,Visiteur,"Page d'accueil : présentation, équipe, avis validés",Must,3,Sprint 2,feature/accueil-menus,Terminé
+US06,Visiteur,"Menu de navigation et pied de page avec horaires, mentions légales, CGV",Must,2,Sprint 2,feature/charte-graphique,Terminé
+US07,Visiteur,Vue globale des menus,Must,3,Sprint 2,feature/accueil-menus,Terminé
+US08,Visiteur,"Filtres dynamiques sans rechargement (prix, fourchette, thème, régime, personnes)",Must,5,Sprint 2,feature/accueil-menus,Terminé
+US09,Visiteur,"Vue détaillée d'un menu (galerie, plats, allergènes, conditions en évidence)",Must,3,Sprint 2,feature/accueil-menus,Terminé
+US10,Compte,"Créer un compte (mot de passe sécurisé, rôle utilisateur, e-mail de bienvenue)",Must,3,Sprint 2,feature/authentification,Terminé
+US11,Compte,Se connecter / se déconnecter (anti brute-force),Must,3,Sprint 2,feature/authentification,Terminé
+US12,Compte,Réinitialiser son mot de passe par e-mail,Must,3,Sprint 2,feature/authentification,Terminé
+US13,Commande,"Commander un menu (formulaire pré-rempli, prix détaillé, réduction, livraison)",Must,8,Sprint 3,feature/commande,Terminé
+US14,Commande,E-mail de confirmation de commande,Must,1,Sprint 3,feature/commande,Terminé
+US15,Utilisateur,Voir ses commandes et leur suivi horodaté,Must,3,Sprint 3,feature/espace-utilisateur,Terminé
+US16,Utilisateur,Modifier / annuler une commande non acceptée,Must,3,Sprint 3,feature/espace-utilisateur,Terminé
+US17,Utilisateur,Donner un avis (note 1-5 + commentaire) sur une commande terminée,Must,2,Sprint 3,feature/espace-utilisateur,Terminé
+US18,Utilisateur,Modifier ses informations / supprimer son compte (RGPD),Should,2,Sprint 3,feature/espace-utilisateur,Terminé
+US19,Employé,"Lister et filtrer les commandes (statut, client)",Must,3,Sprint 4,feature/espace-employe,Terminé
+US20,Employé,Faire évoluer le statut (e-mails retour matériel et avis),Must,5,Sprint 4,feature/espace-employe,Terminé
+US21,Employé,Annuler / modifier une commande avec mode de contact et motif,Must,3,Sprint 4,feature/espace-employe,Terminé
+US22,Employé,"CRUD menus, plats, allergènes, images",Must,8,Sprint 4,feature/espace-employe,Terminé
+US23,Employé,Modifier les horaires,Must,1,Sprint 4,feature/espace-employe,Terminé
+US24,Employé,Valider / refuser les avis,Must,2,Sprint 4,feature/espace-employe,Terminé
+US25,Admin,Créer / désactiver un compte employé (mot de passe non envoyé),Must,3,Sprint 5,feature/espace-admin-mongodb,Terminé
+US26,Admin,Graphique des commandes par menu (MongoDB),Must,5,Sprint 5,feature/espace-admin-mongodb,Terminé
+US27,Admin,Chiffre d'affaires par menu filtrable par menu et par période,Must,3,Sprint 5,feature/espace-admin-mongodb,Terminé
+US28,Visiteur,Formulaire de contact envoyé par e-mail,Must,2,Sprint 5,feature/contact,Terminé
+US29,Qualité,"Sécurité (CSRF, XSS, CSP, en-têtes, RBAC, IDOR) et RGAA",Must,5,Sprint 5,transverse (toutes les branches),Terminé
+US30,Qualité,Tests de bout en bout des parcours,Should,3,Sprint 5,—,Terminé
+US31,Livraison,Dockerisation et déploiement Fly.io + Aiven + Atlas,Must,5,Sprint 6,feature/deploiement,Terminé
+US32,Livraison,"Documentations (technique, manuel, charte, gestion de projet) et README",Must,5,Sprint 6,feature/documentation,Terminé
