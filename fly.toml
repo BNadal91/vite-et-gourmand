@@ -1,0 +1,23 @@
+# Configuration du déploiement Fly.io (fly launch --no-deploy puis fly deploy)
+app = "vite-et-gourmand"
+primary_region = "cdg"   # Paris
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  APP_DEBUG = "false"
+  MAIL_DRIVER = "smtp"
+  GEO_API = "on"
+  MONGODB_DB = "vite_gourmand"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
