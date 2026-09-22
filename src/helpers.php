@@ -132,8 +132,17 @@ function base_url(): string
     return rtrim((string) App\Core\Env::get('APP_URL', 'http://localhost:8000'), '/');
 }
 
+/**
+ * Adresse IP réelle du visiteur. Derrière le proxy de Fly.io, REMOTE_ADDR est l'adresse
+ * interne du proxy (identique pour tout le monde) : on lit alors l'en-tête Fly-Client-IP,
+ * que le proxy de Fly.io écrit lui-même (il ne peut pas être imposé par le visiteur).
+ */
 function client_ip(): string
 {
+    $fly = $_SERVER['HTTP_FLY_CLIENT_IP'] ?? '';
+    if ($fly !== '' && filter_var($fly, FILTER_VALIDATE_IP)) {
+        return $fly;
+    }
     return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
 }
 
