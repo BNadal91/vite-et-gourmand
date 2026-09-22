@@ -1,0 +1,9 @@
+# Secrets et fichiers locaux : jamais versionnés
+.env
+storage/logs/*.log
+public/uploads/*
+!public/uploads/.htaccess
+!public/uploads/.gitkeep
+.DS_Store
+.idea/
+.vscode/
